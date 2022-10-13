@@ -1,34 +1,52 @@
+import java.util.Scanner;
 public class LabRunner {
     public static void main(String[] args) {
-//        String str = "good morning";
-//        int strLen = str.length();
-//        System.out.print(strLen);
-//
-//        String str1 = "Hello how are you today?";
-//        System.out.println(str1.indexOf("you"));
-//        System.out.println(str1.indexOf("You"));
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter first string: ");
+        String str1 = scan.nextLine();
 
-//        String myString = "AP CSA is awesome!";
-//        String s = myString.substring(4,5);
-//        System.out.println(s);
-//        String awe = myString.substring(10,18);
-//        System.out.println(awe);
-//        String aweStr = myString.substring(10,13);
-//       System.out.println(aweStr);
+        String firstHalf = "";
+        String secondHalf = "";
+        if ((str1.length() % 2) == 0){
+            firstHalf = str1.substring(0,(str1.length()/2));
+            secondHalf = str1.substring(str1.length()/2);
+        } else {
+            firstHalf = str1.substring(0,str1.length()/2);
+            secondHalf = str1.substring(str1.length()/2);
+        }
 
-//        String origStr ="Hello how are you today?";
-//        String str9 = origStr.substring(6,9);
-//        System.out.println(str9);
+        System.out.println("String length: " + str1.length());
+        System.out.println("First half: " + firstHalf);
+        System.out.println("Second half: " + secondHalf);
 
-//        String blah = "What's for dinner?";
-//        String ugh = blah.substring(11,17);
-//        System.out.println(ugh);
+        System.out.print("Enter second string: ");
+        String str2 = scan.nextLine();
 
-        String blah2 = "What's for dinner?";
-        String ugh2 = blah2.substring(11);
-        System.out.println(ugh2);
-        String ugh3 = blah2.substring(11,18);
-        System.out.println(ugh3);
+        if (str1.length() != str2.length()){
+            if (str1.length() > str2.length()){
+                System.out.println(str1 + " is longer");
+            } else {
+                System.out.println(str2 + " is longer");
+            }
+        } else {
+            System.out.println("Both strings have the same length");
+        }
 
+        if (str1.equals(str2)){
+            System.out.println("Both strings have the exact same characters");
+        } else {
+            if (str1.compareTo(str2) < 0){
+                System.out.println(str2 + " is first alphabetically");
+            } else {
+                System.out.println(str1 + " is first alphabetically");
+            }
+        }
+
+
+        if (str1.indexOf(str2) != -1){
+            System.out.println(str2 + " is found in " + str1 + " at index " + str1.indexOf(str2));
+        } else {
+            System.out.println(str2 + " is NOT found in " + str1);
+        }
     }
 }
